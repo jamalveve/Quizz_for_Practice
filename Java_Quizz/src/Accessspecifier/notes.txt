@@ -1,0 +1,65 @@
+->Access Modifiers in Java are used to control the visibility of fields, methods, classes and constructors.
+
+Subclass Level
+#################
+->No, you can’t create sub classes to that class which has private constructors.-QUIZZ1
+
+->No. you can not create subclass outside the package for class with with default (no) access modifier
+explanation with constructor level:Class-A itself has been defined with default access modifier. That means Class-A can be instantiated within the package in which it is defined. It can not be instantiated outside the package, 
+even though it has public constructor.QUIZZ7 AND CHECCKCLASS3
+
+
+->and you cant event create a class by protected do no needd to worry about creating subclass forit
+
+===============================================================================================================
+Instantiate level
+#######################
+->we can’t instantiate a public class outside the package which has protected constructors.or default constructor-QUIZZ4 ,5 AND CHECKCLASS1,2
+(inside the same package different class possible(subclass and not subclass level also))-QUIZZ9
+===============================================================================================================
+
+InnerClass Level
+##################
+->Inner classes can be private AND PROTECTED, but outer classes can not be private and protected.
+
+->if you have private inner Class that can not be instantiated outside the class(differet class).-QUIZZ6
+===============================================================================================================
+
+
+
+->Yes, protected members of a class are inherited to sub classes outside the package.
+->->Yes, protected members of a class are inherited to any sub class.
+===============================================================================================================
+
+final and private possibilities
+################################
+->you cant override a private methods and final methods
+
+-​>final methods and variables can be accessed from a child class just like anyother method,
+ but they cannot be overridden or modified.​ This ensures that the functionality and value defined in the parent class are preserved in the derived class.
+
+->finall methods and variables can be accessed but private nmember and var cant be accessed
+
+->you cant modify also both the private and final vairiblae by its subclasss
+
+===============================================================================================================
+Reduction levelß
+###############
+->You can’t reduce the visibility of a method while overriding it.
+ex:
+class A
+{
+    public void methodOfA()
+    {
+        System.out.println("Class A");
+    }
+}
+ 
+class B extends A
+{
+    @Override
+    void methodOfA()
+    {
+        System.out.println("Class B");
+    }
+}
