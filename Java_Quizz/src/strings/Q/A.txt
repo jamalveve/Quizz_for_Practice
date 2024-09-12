@@ -1,0 +1,237 @@
+https://www.interviewbit.com/java-string-interview-questions/
+
+
+Experienced Interview questions
+1)Explain the string subSequence method.give one example java program
+
+
+2)Key Differences between substring and subsequence?
+
+Return Type:
+*************
+substring(): Always returns a String.
+subSequence(): Returns a CharSequence, which may not always be a String. For example, if called on a StringBuilder, it returns a StringBuilder object.
+
+
+Applicability:
+************
+substring(): Available only on String objects.
+subSequence(): Available on any CharSequence (e.g., String, StringBuilder, StringBuffer).
+
+Use Case:
+***********
+substring(): Typically used when working directly with String and you need to extract a portion of it.
+subSequence(): Useful when working with CharSequence objects and you want a flexible way to obtain a portion of the sequence without necessarily converting it to a String.
+It provides a view into the original CharSequence.This means that it provides a view into the original data without creating a new copy in memory
+
+
+herefore, if you require read-only access to a part of a string and want to avoid additional memory usage, utilizing subSequence() is the appropriate choice.
+
+
+1. Use Cases for subSequence()
+*********************************
+A practical scenario for using subSequence() would be when a developer is working with a large text file and needs to process certain portions of this file frequently.
+ By accessing subsequences without duplicating the original string, the application can save memory, which is especially crucial in environments with limited resources.
+ 
+  For example, if a program needs to fetch multiple views of a document's headings stored in a string, subSequence() can efficiently provide references to those sections.
+  
+  
+2.USECASE FOR substring()
+*************************
+Conversely, the substring() method creates a new String that contains the specified characters from the original string. This new string is independent of the original, i
+mpacting memory usage since it replicates the required portion. Therefore, modifications made to the new substring do not affect the original string, 
+although the original string remains immutable. Such behavior is essential when creating isolated copies that can be modified without altering the original data.
+
+
+Real time scenario for string:
+******************************
+arises in scenarios where a program must modify or manipulate parts of strings, such as user input or formatted output. If an application collects input data and subsequently requires edits on specific input fields, creating a substring allows changes to be made independently from the original input, preserving its integrity
+
+
+
+Real time scenario for stringBuilder;
+*************************************
+
+
+
+3)What is String Joiner?
+StringJoiner is a Java class that allows you to construct or create a sequence of strings (characters) that are separated by delimiters like a hyphen(-), comma(,), etc. Optionally, you can also pass suffix and prefix to the char sequence.
+
+util package
+
+
+
+4. How can a Java string be converted into a byte array?
+The getBytes() method allows you to convert a string to a byte array by encoding or converting the specified string into a sequence of bytes using the default charset of the platform. Below is a Java program to convert a Java String to a byte array.
+
+5>what is byte array?
+A byte array is a data structure that consists of an array of bytes, used for storing binary data in various programming languages.​ In different contexts, byte arrays enable efficient storage and manipulation of data, such as audio samples, text, and network packets. They serve as foundational elements in file handling, data communication, and multimedia processing.
+
+. Advantages of Using Byte Arrays
+Using byte arrays comes with several advantages. They enable efficient storage of large amounts of binary data without needing to convert data into object types. Accessing data in its native binary format allows for faster processing, especially important in media applications, data encoding, and network communications.
+
+
+
+
+5. In Java, how do you convert a string to an integer and vice versa?
+
+public class StringtoInteger {
+  public static void main(String args[]) 
+  {
+     String str1 = "1296";
+     int  i= Integer.parseInt(str1);
+     System.out.println(i);
+     String str2 = Integer.toString(i);
+     System.out.println(str2);
+  }
+}
+
+6. How can we convert string to StringBuilder?
+
+
+public class StringToStringBuilder {
+  public static void main(String args[]) {
+     String strs[] = {"Scaler", "by", "InterviewBit!"};
+     StringBuilder sb = new StringBuilder();
+     sb.append(strs[0]);
+     sb.append(" "+strs[1]);
+     sb.append(" "+strs[2]);
+     System.out.println(sb.toString());
+  }
+}
+
+
+7. How many objects will be created for the following codes:
+
+A. 
+
+String str1 = "abc";                            //Line1
+String str2 = new String("abc");                //Line2
+
+For A: In this case, two objects will be created. We know that whenever a Java string is created using a new keyword, 
+then two objects will be created i.e. one in the Heap Area and another one in the String constant pool. 
+
+B.
+
+String str1 = "abc";                            //Line1
+String str2 = "abc";                            //Line2
+
+For B: In this case, one object will be created. Here, for line1 (str1), one new object will get created in String constant pool, 
+whereas for line 2, string str2 will create a reference to the String str1 because the string constant pool already has a String object str1 with the same string value (abc).
+
+C.
+
+String str1 = new String("abc");                //Line1
+String str2 = new String("abc");                //Line2
+
+
+for C
+Object from str1 (Heap): 1
+Object from str2 (Heap): 1
+Object from "abc" (String Constant Pool): 1 (one for new string instance referencing the same literal).
+
+
+8. Why char array is preferred over a String in storing passwords?
+
+There are various reasons why a char array rather than a string should be used to store passwords. The following are a few of them:
+
+1. Immutability of Strings->
+Strings in Java are immutable, meaning that once they are created, their content cannot be changed. Any operation that seems to modify a String actually results in the creation of a new String object, which leaves the original object intact in memory. Consequently, sensitive data, such as passwords and Social Security numbers, should be stored in a char[] array. This allows developers to overwrite the data in the array as needed, thus preventing accidental retention of sensitive information.
+
+2. Security Concerns->
+A password stored in a String remains in memory until the garbage collector clears it, which is not predictable and can take time. Additionally, since strings are stored in the String Constant Pool (SCP), there is a significant chance that the plaintext password remains in memory longer than intended. This extended availability increases the risk that someone with access to the memory dump can retrieve the password in plain text. Therefore, using a char[] array is preferred as it provides a mechanism to explicitly clear the data from memory as soon as it is no longer required
+
+3.Logfile safety:->
+ With an array, the data can be erased or wiped up, overwritten and the password will not be present anywhere in the system. Whereas, when using plain String, the chances of mistakenly printing the password to monitors, logs, or other insecure locations are substantially higher.
+ 
+ 
+ 9. What are the different string methods in Java?
+
+There are various string operations in Java that allow us to work with strings. These methods or operations can be used for string handling in Java as well as string manipulation in Java. Some of such methods are as follows:
+
+split(): Split/divide the string at the specified regex.
+compareTo(): Compares two strings on the basis of the Unicode value of each string character.
+compareToIgnoreCase(): Similar to compareTo, but it also ignores case differences.
+length(): Returns the length of the specified string.
+substring(): Returns the substring from the specified string.
+equalsIgnoreCase(): Compares two strings ignoring case differences.
+contains(): Checks if a string contains a substring.
+trim(): Returns the substring after removing any leading and trailing whitespace from the specified string.
+charAt(): Returns the character at specified index.
+toLowerCase(): Converts string characters to lower case.
+toUpperCase(): Converts string characters to upper case.
+concat(): Concatenates two strings.
+ 
+ 
+ 
+10. Is String thread-safe in Java?
+
+Strings are immutable objects, which means they can't be changed or altered once they've been created. 
+As a result, whenever we manipulate a String object, it creates a new String rather than modifying the original string object. 
+
+
+In Java, every immutable object is thread-safe, which means String is also thread-safe. As a result, multiple threads can access a string.
+ For instance, if a thread modifies the value of a string, instead of modifying the existing one, a new String is created, and therefore, the original string object that was shared among the threads remains unchanged.
+
+ 
+ 
+11. Why is a string used as a HashMap key in Java?
+
+Basically, the HashMap object can store key-value pairs. When creating a HashMap object and storing a key-value pair in that object, you will notice that while storing, the hash code of the key will be calculated, and its calculated value will be placed as the resultant hash code of the key. Now, when the key is passed to fetch its value, then the hash code of the key is calculated again, and if it's equal to the value of the hash code initially calculated, the initial value placed as the resultant hash code of the key is retrieved or fetched.
+
+Let's say we utilized a variable as a key to store data and then changed the value of that variable. In this case, since we have altered the key, the hash code calculated of the current key will not match the hash code at which its value was originally stored. This makes retrieval impossible. String values are immutable, so once they've been created, they can't be changed. As a result, it is recommended to use Strings as HashMap keys.
+
+ 
+ 
+Programs
+*********
+Reverse vowels in a given string
+Remove spaces from a given string
+Remove extra spaces from a string
+Remove duplicates from a string in O(1) extra space
+Remove duplicates from a string
+Remove “b” and “ac” from a given string
+Remove odd indexed characters from a given string
+Remove a character from a string to make it a palindrome
+Remove the first and last occurrence of a given Character from a String
+Remove all occurrences of a character in a string
+Remove last occurrence of a word from a given sentence string
+Remove all the palindromic words from the given sentence
+Print longest palindrome word in a sentence(Madam Arora teaches Malayalam )
+
+Print reverse of a string using recursion
+Finite and Infinite Recursion with examples
+Difference between Recursion and Iteration
+Types of Recursions
+
+
+https://www.javatpoint.com/how-to-reverse-string-in-java
+
+
+16) How to Optimize Java String Creation?
+
+17) Java Program to check whether two Strings are anagram or not
+
+18) Java program to find the percentage of uppercase, lowercase, digits and special characters in a String
+
+19) How to convert String to Integer and Integer to String in Java
+
+20) Java Program to find duplicate characters in a String
+
+21) Java Program to prove that strings are immutable in java
+
+22) Java Program to remove all white spaces from a String
+
+23) Java Program to check whether one String is a rotation of another
+
+24) Java Program to count the number of words in a String
+
+25) Java Program to reverse a given String with preserving the position of space
+
+26) How to swap two String variables without third variable
+
+27) How to remove a particular character from a String
+
+
+
+
