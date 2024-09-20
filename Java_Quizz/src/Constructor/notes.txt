@@ -1,5 +1,5 @@
-->if you are creating a paran constructir,and creating object for zero param constructor or vice versa
-note if you write own costrtuctor compiler wont call any default ocnstructor so you have to create obj for the right constrctor
+->1)if you are creating a paran constructir,and creating object for zero param constructor or vice versa
+note if you write own costrtuctor compiler wont call any default ocnstructor so you have to create obj for the right constructor
 
 ->1) Constructor name should be same as class name.
 ->2) If you don\'t define a constructor for a class, a default parameterless constructor is automatically
@@ -10,4 +10,16 @@ note if you write own costrtuctor compiler wont call any default ocnstructor so 
 ->4) If we want to call parent class constructor, it must be called in 
    first line of constructor.
 
-->instance variable can be changed/modified inside the constructor
+->5)instance variable/global variable can be changed/modified inside the constructor
+
+
+Constructors are not inherited. A subclass does not automatically inherit constructors from its superclass.
+However, a subclass constructor can call a superclass constructor using the super keyword.
+
+
+->2)If the superclass has a parameterized constructor then you  have to define your own constructors in the subclass to call the superconstructor using super,
+ 
+->3)it can be zero param /param constructor from your subclass ,but you must call one of the superclass’s constructors explicitly.
+
+
+->

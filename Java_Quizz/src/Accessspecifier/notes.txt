@@ -2,20 +2,21 @@
 
 Subclass Level
 #################
-->No, you can’t create sub classes to that class which has private constructors.-QUIZZ1
+->No, you can’t create sub classes to that class which has only private constructors.-QUIZZ1
 
 ->No. you can not create subclass outside the package for class with with default (no) access modifier
-explanation with constructor level:Class-A itself has been defined with default access modifier. That means Class-A can be instantiated within the package in which it is defined. It can not be instantiated outside the package, 
+explanation with constructor level:if some class itself has been defined with default access modifier. That means Class-A can be instantiated within the package in which it is defined. It can not be instantiated outside the package, 
 even though it has public constructor.QUIZZ7 AND CHECCKCLASS3
 
-
-->and you cant event create a class by protected do no needd to worry about creating subclass forit
+(default and protected constructr)-possible
+->and you cant event create a class by protected modifier so dont  need to worry about creating subclass forit
 
 ===============================================================================================================
 Instantiate level
 #######################
-->we can’t instantiate a public class outside the package which has protected constructors.or default constructor-QUIZZ4 ,5 AND CHECKCLASS1,2
+->we can’t instantiate a public class outside the package which has private, protected constructors.or default constructor-QUIZZ4 ,5 AND CHECKCLASS1,2
 (inside the same package different class possible(subclass and not subclass level also))-QUIZZ9
+->we can’t instantiate a public class outside the package  for a class which is default and even though it has public constructor in it 
 ===============================================================================================================
 
 InnerClass Level
@@ -24,7 +25,8 @@ InnerClass Level
 
 ->if you have private inner Class that can not be instantiated outside the class(differet class).-QUIZZ6
 ===============================================================================================================
-
+Protected level
+###################
 
 
 ->Yes, protected members of a class are inherited to sub classes outside the package.
@@ -35,12 +37,13 @@ final and private possibilities
 ################################
 ->you cant override a private methods and final methods
 
+->you cant modify also both the private and final vairiblae by its subclasss
+
 -​>final methods and variables can be accessed from a child class just like anyother method,
  but they cannot be overridden or modified.​ This ensures that the functionality and value defined in the parent class are preserved in the derived class.
 
-->finall methods and variables can be accessed but private nmember and var cant be accessed
+->but private nmember and var cant be accessed
 
-->you cant modify also both the private and final vairiblae by its subclasss
 
 ===============================================================================================================
 Reduction levelß
