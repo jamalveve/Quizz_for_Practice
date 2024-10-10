@@ -2,9 +2,13 @@ package strings;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class ReversestringsWays {
 	
+	//using collection
+	//suing reverse forloop travsersing as charater
+	//using trungbuilder buffer 
 	public static String reverse(String text) {
 		String[] str=text.split(" ");
 		Collections.reverse(Arrays.asList(str));
@@ -38,6 +42,10 @@ public static void main(String[] args) {
 	String text="hello i am a new string";
 	System.out.println(reverse(text));
 	
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the string you want to reverse : ");//check quizz prohect
+	String sentence=sc.nextLine();
+	System.out.println(reverse(sentence));
 
 	
 	//way 3
